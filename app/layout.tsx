@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
 import "./globals.css";
+// Removed unused import: import { NavigationMenu } from "@/components/ui/navigation-menu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,9 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-gray-900 text-white antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-black text-white antialiased`}
       >
-        <header className="container mx-auto px-6 py-4">
+        <header className="sticky top-0 z-50 container mx-auto px-6 py-4 bg-black/80 backdrop-blur-sm">
           <nav className="flex justify-between items-center">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
@@ -43,7 +44,10 @@ export default function RootLayout({
             </div>
           </nav>
         </header>
-        {children}
+        <main>{children}</main>
+        <footer className="container mx-auto px-6 py-8 text-center text-gray-500 border-t border-gray-800">
+          <p>&copy; 2025 Meiro. All rights reserved.</p>
+        </footer>
       </body>
     </html>
   );
