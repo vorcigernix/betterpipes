@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useEffect, useState } from 'react';
 import { Canvas, useFrame, extend } from '@react-three/fiber';
 import { shaderMaterial } from '@react-three/drei';
 import * as THREE from 'three';
@@ -161,7 +161,7 @@ function ShaderPlane() {
   return (
     <mesh position={[0, -0.75, -0.5]}>
       <planeGeometry args={[8, 8]} />
-      <primitive object={new CPPNShaderMaterial()} ref={materialRef} side={THREE.DoubleSide} />
+      <cPPNShaderMaterial ref={materialRef} side={THREE.DoubleSide} />
     </mesh>
   );
 }
@@ -198,7 +198,7 @@ function ShaderBackground() {
       <Canvas
         camera={camera}
         gl={{ antialias: true, alpha: false }}
-        dpr={[1, 2]}
+        dpr={[1, 1.5]}
         style={{ width: '100%', height: '100%' }}
       >
         <ShaderPlane />
@@ -239,6 +239,19 @@ export default function NeuralNetworkHero({
   const microItem1Ref = useRef<HTMLLIElement | null>(null);
   const microItem2Ref = useRef<HTMLLIElement | null>(null);
   const microItem3Ref = useRef<HTMLLIElement | null>(null);
+  const [showCanvas, setShowCanvas] = useState(false);
+
+  // Mount/unmount the heavy Canvas only when the hero is in view
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setShowCanvas(entry.isIntersecting),
+      { threshold: 0.15, rootMargin: '100px' }
+    );
+    io.observe(section);
+    return () => io.disconnect();
+  }, []);
 
   useGSAP(
     () => {
@@ -301,13 +314,18 @@ export default function NeuralNetworkHero({
       if (microItems.length > 0) {
         tl.to(microItems, { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.1 }, '-=0.25');
       }
+
+      // Ensure SplitText restores DOM on cleanup to prevent leaks
+      return () => {
+        split.revert();
+      };
     },
     { scope: sectionRef },
   );
 
   return (
     <section ref={sectionRef} className="relative rounded-xl overflow-hidden my-16">
-      <ShaderBackground />
+      {showCanvas && <ShaderBackground />}
 
       <div className="relative mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 pb-24 pt-36 sm:gap-8 sm:pt-44 md:px-10 lg:px-16">
         <div ref={badgeRef} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm">

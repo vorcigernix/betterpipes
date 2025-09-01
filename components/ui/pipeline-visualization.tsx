@@ -8,6 +8,7 @@ export default function PipelineVisualization() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Re-attach observer when switching between mobile/desktop SVGs
     const svg = svgRef.current;
     if (!svg) return;
 
@@ -26,7 +27,7 @@ export default function PipelineVisualization() {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     const checkMobile = () => {
