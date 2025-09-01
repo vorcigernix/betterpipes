@@ -40,7 +40,7 @@ export default function RootLayout({
               </div>
               <div>
                 <div className="font-bold text-2xl">betterpipes</div>
-                <a href="https://meiro.com" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition">
+                <a href="https://meiro.io" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition">
                   built by Meiro
                 </a>
               </div>
