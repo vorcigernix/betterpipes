@@ -1,0 +1,20 @@
+{
+  "name": "BetterPipes - Event Routing Made Simple",
+  "short_name": "BetterPipes",
+  "description": "Route, transform, and enrich your event data with JavaScript lambdas. Connect to dozens of destinations in minutes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F0F23",
+  "theme_color": "#8B5CF6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "developer", "business"],
+  "lang": "en-US"
+}

@@ -16,10 +16,70 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "BetterPipes | The Modern Data Pipeline for Developers",
-  description: "Route, transform, and enrich your event data with JavaScript lambdas. Powerful, flexible, and cost-effective.",
+  description: "Route, transform, and enrich your event data with JavaScript lambdas. Connect to dozens of destinations like Snowflake, BigQuery, Mixpanel, and HubSpot in minutes. Powerful, flexible, and cost-effective event routing platform.",
+  keywords: [
+    "event routing",
+    "data pipeline",
+    "JavaScript",
+    "data transformation",
+    "analytics",
+    "customer data platform",
+    "CDP",
+    "data integration",
+    "webhooks",
+    "API",
+    "real-time data",
+    "data streaming",
+    "ETL",
+    "data warehouse",
+    "Snowflake",
+    "BigQuery",
+    "Mixpanel",
+    "HubSpot"
+  ],
+  authors: [{ name: "Meiro" }],
+  creator: "Meiro",
+  publisher: "Meiro",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://betterpipes.com",
+    siteName: "BetterPipes",
+    title: "BetterPipes | The Modern Data Pipeline for Developers",
+    description: "Route, transform, and enrich your event data with JavaScript lambdas. Connect to dozens of destinations in minutes. Powerful, flexible, and cost-effective.",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "BetterPipes - Event Routing Made Simple",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BetterPipes | The Modern Data Pipeline for Developers",
+    description: "Route, transform, and enrich your event data with JavaScript lambdas. Connect to dozens of destinations in minutes.",
+    images: ["/og-image.svg"],
+    creator: "@meiro",
+  },
   icons: {
     icon: '/favicon.svg',
+    apple: '/favicon.svg',
   },
+  manifest: "/manifest.json",
+  category: "technology",
 };
 
 export default function RootLayout({

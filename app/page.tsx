@@ -6,8 +6,42 @@ import { ContactForm } from "@/components/form";
 import PipelineVisualization from "@/components/ui/pipeline-visualization";
 
 export default function Home() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BetterPipes",
+    "description": "Route, transform, and enrich your event data with JavaScript lambdas. Connect to dozens of destinations like Snowflake, BigQuery, Mixpanel, and HubSpot in minutes.",
+    "url": "https://betterpipes.com",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free tier available"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Meiro",
+      "url": "https://meiro.io"
+    },
+    "featureList": [
+      "JavaScript-native pipeline transformations",
+      "Rich connector library",
+      "Live event debugger",
+      "Visual pipeline builder",
+      "Identity resolution",
+      "Real-time data processing"
+    ],
+    "screenshot": "https://betterpipes.com/og-image.svg"
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <div className="container mx-auto px-6">
         <NeuralNetworkHero 
           title="Don&apos;t Just Capture Events. Control Them."
