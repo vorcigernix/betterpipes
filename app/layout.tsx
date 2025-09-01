@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://betterpipes.com'),
   title: "BetterPipes | The Modern Data Pipeline for Developers",
   description: "Route, transform, and enrich your event data with JavaScript lambdas. Connect to dozens of destinations like Snowflake, BigQuery, Mixpanel, and HubSpot in minutes. Powerful, flexible, and cost-effective event routing platform.",
   keywords: [

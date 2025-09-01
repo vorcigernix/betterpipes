@@ -2,6 +2,7 @@
 
 import { useRef, useMemo, useEffect, useState } from 'react';
 import { Canvas, useFrame, extend } from '@react-three/fiber';
+import type { ThreeElement } from '@react-three/fiber';
 import { shaderMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -149,7 +150,15 @@ const CPPNShaderMaterial = shaderMaterial(
 extend({ CPPNShaderMaterial });
 
 function ShaderPlane() {
-  const materialRef = useRef<InstanceType<typeof CPPNShaderMaterial>>(null!);
+  const materialRef = useRef<ShaderMaterialInstance | null>(null);
+
+  // Dispose material on unmount (safety – R3F also disposes on unmount)
+  useEffect(() => {
+    const m = materialRef.current;
+    return () => {
+      m?.dispose?.();
+    };
+  }, []);
 
   useFrame((state) => {
     if (!materialRef.current) return;
@@ -375,8 +384,10 @@ export default function NeuralNetworkHero({
   );
 }
 
+type ShaderMaterialInstance = InstanceType<typeof CPPNShaderMaterial>;
+
 declare module '@react-three/fiber' {
   interface ThreeElements {
-    cPPNShaderMaterial: typeof CPPNShaderMaterial;
+    cPPNShaderMaterial: ThreeElement<typeof CPPNShaderMaterial>;
   }
 }
