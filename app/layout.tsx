@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "BetterPipes | The Modern Data Pipeline for Developers",
   description: "Route, transform, and enrich your event data with JavaScript lambdas. Powerful, flexible, and cost-effective.",
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
