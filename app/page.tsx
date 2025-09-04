@@ -1,4 +1,4 @@
-import { Shield, Server, CheckCircle } from "lucide-react";
+import { Shield, Server, CheckCircle, ArrowRight } from "lucide-react";
 import NeuralNetworkHero from "@/components/ui/neural-network-hero";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import { features } from "@/lib/features";
@@ -121,6 +121,15 @@ betterpipes.route()
         {/* Pricing Tiers Section */}
         <section className="py-24">
           <h2 className="text-4xl font-extralight tracking-tight text-center mb-16">Find the Plan That&apos;s Right for You</h2>
+          <div className="text-center mb-12">
+            <a 
+              href="/roi-calculator" 
+              className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors text-lg"
+            >
+              Calculate your potential savings with our ROI calculator
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
           <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="border border-gray-700 rounded-lg p-8 flex flex-col">
               <h3 className="text-2xl font-semibold mb-4">Open Source</h3>

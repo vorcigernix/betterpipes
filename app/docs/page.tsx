@@ -1,6 +1,3 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-
 export default function DocsPage() {
   return (
     <div className="container mx-auto px-6 py-12">
@@ -11,12 +8,6 @@ export default function DocsPage() {
       <p className="text-xl text-neutral-400 text-center mb-12">
         Powerful customer data platform with advanced event routing, real-time processing, and seamless integrations
       </p>
-
-      <div className="mb-12 text-center">
-        <Link href="/" className="text-purple-400 hover:underline flex items-center justify-center">
-          <ArrowRight className="rotate-180 mr-2 h-5 w-5" /> Back to Home
-        </Link>
-      </div>
 
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Table of Contents */}

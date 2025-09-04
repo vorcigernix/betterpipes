@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 import "./globals.css";
 // Removed unused import: import { NavigationMenu } from "@/components/ui/navigation-menu";
 
@@ -96,15 +97,22 @@ export default function RootLayout({
         <header className="sticky top-0 z-50 container mx-auto px-6 py-4 bg-black/80 backdrop-blur-sm">
           <nav className="flex justify-between items-center">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                <Image src="/logo.svg" alt="BetterPipes Logo" width={48} height={48} />
-              </div>
-              <div>
-                <div className="font-bold text-2xl">betterpipes</div>
-                <a href="https://meiro.io" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition">
-                  built by Meiro
-                </a>
-              </div>
+              <Link href="/" className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                  <Image src="/logo.svg" alt="BetterPipes Logo" width={48} height={48} />
+                </div>
+                <div>
+                  <div className="font-bold text-2xl">betterpipes</div>
+                  <div className="text-sm text-gray-400">
+                    built by Meiro
+                  </div>
+                </div>
+              </Link>
+            </div>
+            <div className="flex items-center gap-8">
+              <Link href="/" className="text-white/80 hover:text-white transition-colors">Home</Link>
+              <Link href="/roi-calculator" className="text-white/80 hover:text-white transition-colors">ROI Calculator</Link>
+              <Link href="/docs" className="text-white/80 hover:text-white transition-colors">Docs</Link>
             </div>
           </nav>
         </header>
