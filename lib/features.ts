@@ -24,7 +24,7 @@ export const features = [
     name: "Visual Pipeline Builder",
     description: "Map sources to destinations with an intuitive interface. Understand your data flow at a glance.",
     href: "/",
-    cta: "Learn more",
+    cta: "Coming Soon",
     img: "data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='80' height='80' rx='12' fill='%231F1F23'/%3E%3Crect x='15' y='20' width='8' height='40' rx='2' fill='%234B5563' opacity='0.8'/%3E%3Crect x='25' y='20' width='8' height='40' rx='2' fill='%234B5563' opacity='0.8'/%3E%3Crect x='35' y='20' width='8' height='40' rx='2' fill='%234B5563' opacity='0.8'/%3E%3Crect x='45' y='20' width='8' height='40' rx='2' fill='%234B5563' opacity='0.8'/%3E%3Crect x='55' y='20' width='8' height='40' rx='2' fill='%234B5563' opacity='0.8'/%3E%3Crect x='65' y='20' width='8' height='40' rx='2' fill='%234B5563' opacity='0.8'/%3E%3Ccircle cx='25' cy='15' r='3' fill='%234B5563' opacity='0.6'/%3E%3Ccircle cx='35' cy='15' r='3' fill='%234B5563' opacity='0.6'/%3E%3Ccircle cx='45' cy='15' r='3' fill='%234B5563' opacity='0.6'/%3E%3Ccircle cx='55' cy='15' r='3' fill='%234B5563' opacity='0.6'/%3E%3Ccircle cx='25' cy='65' r='3' fill='%234B5563' opacity='0.6'/%3E%3Ccircle cx='35' cy='65' r='3' fill='%234B5563' opacity='0.6'/%3E%3Ccircle cx='45' cy='65' r='3' fill='%234B5563' opacity='0.6'/%3E%3Ccircle cx='55' cy='65' r='3' fill='%234B5563' opacity='0.6'/%3E%3C/svg%3E",
     className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
   },

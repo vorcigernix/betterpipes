@@ -18,7 +18,7 @@ export default function Home() {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD",
-      "description": "Free tier available"
+      "description": "Trial available"
     },
     "creator": {
       "@type": "Organization",
@@ -29,9 +29,9 @@ export default function Home() {
       "JavaScript-native pipeline transformations",
       "Rich connector library",
       "Live event debugger",
-      "Visual pipeline builder",
       "Identity resolution",
-      "Real-time data processing"
+      "Real-time data processing",
+      "Cost optimization"
     ],
     "screenshot": "https://betterpipes.com/og-image.svg"
   };
@@ -132,16 +132,16 @@ betterpipes.route()
           </div>
           <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="border border-gray-700 rounded-lg p-8 flex flex-col">
-              <h3 className="text-2xl font-semibold mb-4">Open Source</h3>
-              <p className="text-neutral-400 mb-6 flex-grow">The core routing engine, basic connectors, and transformation logic. Self-host for free, forever.</p>
-              <div className="text-4xl font-bold mb-6">$0</div>
-              <button disabled className="mt-auto bg-gray-800 text-white font-bold py-3 px-6 rounded-full text-center transition opacity-50 cursor-not-allowed">Coming Soon</button>
+              <h3 className="text-2xl font-semibold mb-4">Self-Hosted</h3>
+              <p className="text-neutral-400 mb-6 flex-grow">Deploy BetterPipes on your own infrastructure. Full control over your data with enterprise-grade security and compliance.</p>
+              <div className="text-4xl font-bold mb-6">Custom</div>
+              <a href="#" className="mt-auto bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-full text-center transition">Contact Sales</a>
             </div>
             <div className="border border-purple-500 rounded-lg p-8 flex flex-col relative">
               <div className="absolute top-0 -translate-y-1/2 bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-bold">Most Popular</div>
               <h3 className="text-2xl font-semibold mb-4">Cloud</h3>
-              <p className="text-neutral-400 mb-6 flex-grow">A generous free tier and simple pay-as-you-go pricing for our hosted solution. Includes a 14-day trial of all Pro features.</p>
-              <div className="text-4xl font-bold mb-6">Free <span className="text-lg text-neutral-400">up to 1M events/mo</span></div>
+              <p className="text-neutral-400 mb-6 flex-grow">Start with a generous trial and simple pay-as-you-go pricing for our hosted solution. Includes a 14-day trial of all Pro features.</p>
+              <div className="text-4xl font-bold mb-6">Trial <span className="text-lg text-neutral-400">up to 1M events/mo</span></div>
               <a href="#" className="mt-auto bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full text-center transition">Sign Up Now</a>
             </div>
             <div className="border border-gray-700 rounded-lg p-8 flex flex-col">

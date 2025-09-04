@@ -53,25 +53,34 @@ const BentoCard = ({
     {img && <Image src={img} alt={name} fill className="object-cover object-center opacity-60 transition-opacity duration-300 group-hover:opacity-100" />}
     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
     <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
-      <Icon className="h-12 w-12 origin-left transform-gpu text-white transition-all duration-300 ease-in-out group-hover:scale-75" />
+      <div className="flex items-center justify-between">
+        <Icon className="h-12 w-12 origin-left transform-gpu text-white transition-all duration-300 ease-in-out group-hover:scale-75" />
+        {cta === "Coming Soon" && (
+          <span className="bg-orange-500/20 text-orange-300 px-3 py-1 rounded-full text-xs font-medium border border-orange-500/30">
+            {cta}
+          </span>
+        )}
+      </div>
       <h3 className="text-xl font-semibold text-white">
         {name}
       </h3>
       <p className="max-w-lg text-neutral-200">{description}</p>
     </div>
 
-    <div
-      className={cn(
-        "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100",
-      )}
-    >
-      <button className="pointer-events-auto">
-        <a href={href}>
-          {cta}
-          <ArrowRightIcon className="ml-2 h-4 w-4" />
-        </a>
-      </button>
-    </div>
+    {cta !== "Coming Soon" && (
+      <div
+        className={cn(
+          "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100",
+        )}
+      >
+        <button className="pointer-events-auto">
+          <a href={href}>
+            {cta}
+            <ArrowRightIcon className="ml-2 h-4 w-4" />
+          </a>
+        </button>
+      </div>
+    )}
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.2]" />
   </div>
 );

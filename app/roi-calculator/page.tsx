@@ -350,41 +350,11 @@ export default function ROICalculator() {
       </section>
 
 
-      {/* CTA Section */}
-      <section className="py-24 text-center max-w-6xl mx-auto">
-        <div className="relative overflow-hidden bg-gradient-to-br from-purple-900/20 via-purple-900/30 to-black/40 border border-purple-500/30 rounded-3xl p-16">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-black/20"></div>
-          <div className="relative">
-            <h2 className="text-5xl font-extralight tracking-tight mb-6">
-              Ready to Stop <span className="text-red-400">Overpaying</span> for Analytics?
-            </h2>
-            <p className="text-xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed">
-              <span className="text-white font-semibold">BetterPipes pays for itself within the first month</span> for most companies processing over 1M events monthly.
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-8 mb-12 text-left">
-              <div className="flex items-center gap-4 group">
-                <CheckCircle className="w-6 h-6 text-green-400 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-white/80 text-lg">Free trial: Start filtering your data today</span>
-              </div>
-              <div className="flex items-center gap-4 group">
-                <CheckCircle className="w-6 h-6 text-green-400 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-white/80 text-lg">No long-term contracts: Pay only for what you use</span>
-              </div>
-              <div className="flex items-center gap-4 group">
-                <CheckCircle className="w-6 h-6 text-green-400 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-white/80 text-lg">Expert setup: Our team helps optimize your event pipeline</span>
-              </div>
-            </div>
-            
-            <p className="text-white/60 mb-12 text-lg">
-              <em>Contact us for a custom ROI analysis based on your specific tech stack.</em>
-            </p>
-            
-            <div className="max-w-lg mx-auto">
-              <ContactForm />
-            </div>
-          </div>
+      {/* Call to Action */}
+      <section id="contact-form" className="text-center py-24">
+        <h2 className="text-4xl font-extralight tracking-tight mb-6">Ready to stop overpaying for analytics?</h2>
+        <div className="max-w-md mx-auto">
+          <ContactForm />
         </div>
       </section>
     </div>
