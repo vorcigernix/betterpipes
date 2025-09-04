@@ -27,6 +27,7 @@ const fragmentShader = `
   #endif
   uniform float iTime;
   uniform vec2 iResolution;
+  uniform int colorTheme;
   varying vec2 vUv;
   
   vec4 buf[8];
@@ -135,21 +136,32 @@ const fragmentShader = `
     return vec4(buf[0].x , buf[0].y , buf[0].z, 1.0);
   }
   
+  vec4 applyColorTheme(vec4 originalColor, int theme) {
+    if (theme == 1) {
+      // Red/Gold theme for ROI page
+      float intensity = length(originalColor.rgb);
+      vec3 redGold = mix(vec3(0.8, 0.2, 0.1), vec3(1.0, 0.7, 0.2), intensity);
+      return vec4(redGold * intensity * 0.8, 1.0);
+    }
+    return originalColor;
+  }
+  
   void main() {
     vec2 uv = vUv * 2.0 - 1.0; uv.y *= -1.0;
-    gl_FragColor = cppn_fn(uv, 0.1 * sin(0.3 * iTime), 0.1 * sin(0.69 * iTime), 0.1 * sin(0.44 * iTime));
+    vec4 baseColor = cppn_fn(uv, 0.1 * sin(0.3 * iTime), 0.1 * sin(0.69 * iTime), 0.1 * sin(0.44 * iTime));
+    gl_FragColor = applyColorTheme(baseColor, colorTheme);
   }
 `;
 
 const CPPNShaderMaterial = shaderMaterial(
-  { iTime: 0, iResolution: new THREE.Vector2(1, 1) },
+  { iTime: 0, iResolution: new THREE.Vector2(1, 1), colorTheme: 0 },
   vertexShader,
   fragmentShader
 );
 
 extend({ CPPNShaderMaterial });
 
-function ShaderPlane() {
+function ShaderPlane({ colorTheme = 0 }: { colorTheme?: number }) {
   const materialRef = useRef<ShaderMaterialInstance | null>(null);
 
   // Dispose material on unmount (safety – R3F also disposes on unmount)
@@ -163,6 +175,7 @@ function ShaderPlane() {
   useFrame((state) => {
     if (!materialRef.current) return;
     materialRef.current.iTime = state.clock.elapsedTime;
+    materialRef.current.colorTheme = colorTheme;
     const { width, height } = state.size;
     materialRef.current.iResolution.set(width, height);
   });
@@ -175,7 +188,7 @@ function ShaderPlane() {
   );
 }
 
-function ShaderBackground() {
+function ShaderBackground({ colorTheme = 0 }: { colorTheme?: number }) {
   const canvasRef = useRef<HTMLDivElement | null>(null);
   
   const camera = useMemo(() => ({ position: [0, 0, 1] as [number, number, number], fov: 75, near: 0.1, far: 1000 }), []);
@@ -210,7 +223,7 @@ function ShaderBackground() {
         dpr={[1, 1.5]}
         style={{ width: '100%', height: '100%' }}
       >
-        <ShaderPlane />
+        <ShaderPlane colorTheme={colorTheme} />
       </Canvas>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-blue-500/20 via-transparent to-purple-500/20" />
@@ -226,6 +239,7 @@ interface HeroProps {
   badgeLabel?: string;
   ctaButtons?: Array<{ text: string; href: string; primary?: boolean }>;
   microDetails?: Array<string>;
+  colorTheme?: number;
 }
 
 export default function NeuralNetworkHero({
@@ -237,7 +251,8 @@ export default function NeuralNetworkHero({
     { text: "Get started", href: "#get-started", primary: true },
     { text: "View showcase", href: "#showcase" }
   ],
-  microDetails = ["Low‑weight font", "Tight tracking", "Subtle motion"]
+  microDetails = ["Low‑weight font", "Tight tracking", "Subtle motion"],
+  colorTheme = 0
 }: HeroProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const headerRef = useRef<HTMLHeadingElement | null>(null);
@@ -334,7 +349,7 @@ export default function NeuralNetworkHero({
 
   return (
     <section ref={sectionRef} className="relative rounded-xl overflow-hidden my-16">
-      {showCanvas && <ShaderBackground />}
+      {showCanvas && <ShaderBackground colorTheme={colorTheme} />}
 
       <div className="relative mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 pb-24 pt-36 sm:gap-8 sm:pt-44 md:px-10 lg:px-16">
         <div ref={badgeRef} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm">
@@ -384,7 +399,9 @@ export default function NeuralNetworkHero({
   );
 }
 
-type ShaderMaterialInstance = InstanceType<typeof CPPNShaderMaterial>;
+type ShaderMaterialInstance = InstanceType<typeof CPPNShaderMaterial> & {
+  colorTheme: number;
+};
 
 declare module '@react-three/fiber' {
   interface ThreeElements {

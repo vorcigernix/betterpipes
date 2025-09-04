@@ -15,6 +15,7 @@ export default function ROICalculator() {
         badgeLabel="ROI Calculator"
         badgeText="Save up to 70%"
         microDetails={["70% Wasted Events", "$2,000+ Monthly Waste", "$24,000+ Annual Waste"]}
+        colorTheme={1}
       />
 
       {/* Real Savings Examples */}
