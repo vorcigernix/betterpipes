@@ -12,7 +12,6 @@ export function MobileNav() {
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/roi-calculator', label: 'ROI Calculator' },
-    { href: '/docs', label: 'Docs' },
   ];
 
   return (

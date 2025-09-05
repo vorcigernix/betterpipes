@@ -114,7 +114,7 @@ export default function RootLayout({
             <div className="hidden md:flex items-center gap-8">
               <Link href="/" className="text-white/80 hover:text-white transition-colors">Home</Link>
               <Link href="/roi-calculator" className="text-white/80 hover:text-white transition-colors">ROI Calculator</Link>
-              <Link href="/docs" className="text-white/80 hover:text-white transition-colors">Docs</Link>
+             
             </div>
 
             {/* Mobile Navigation */}
