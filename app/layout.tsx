@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+import { MobileNav } from "@/components/ui/mobile-nav";
 import "./globals.css";
 // Removed unused import: import { NavigationMenu } from "@/components/ui/navigation-menu";
 
@@ -109,11 +110,15 @@ export default function RootLayout({
                 </div>
               </Link>
             </div>
-            <div className="flex items-center gap-8">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8">
               <Link href="/" className="text-white/80 hover:text-white transition-colors">Home</Link>
               <Link href="/roi-calculator" className="text-white/80 hover:text-white transition-colors">ROI Calculator</Link>
               <Link href="/docs" className="text-white/80 hover:text-white transition-colors">Docs</Link>
             </div>
+
+            {/* Mobile Navigation */}
+            <MobileNav />
           </nav>
         </header>
         <main>{children}</main>

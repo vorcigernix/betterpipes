@@ -11,7 +11,7 @@ export default function DocsPage() {
 
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Table of Contents */}
-        <aside className="lg:w-1/4 sticky top-24 h-fit p-4 border border-gray-700 rounded-lg">
+        <aside className="lg:w-1/4 sticky top-24 h-fit p-4 border border-gray-700 rounded-lg bg-black z-10">
           <h3 className="text-2xl font-semibold mb-4">Contents</h3>
           <ul className="space-y-2">
             <li><a href="#core-platform-features" className="text-neutral-400 hover:text-white">Core Platform Features</a></li>
