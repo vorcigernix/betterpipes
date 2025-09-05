@@ -135,20 +135,20 @@ betterpipes.route()
               <h3 className="text-2xl font-semibold mb-4">Self-Hosted</h3>
               <p className="text-neutral-400 mb-6 flex-grow">Deploy BetterPipes on your own infrastructure. Full control over your data with enterprise-grade security and compliance.</p>
               <div className="text-4xl font-bold mb-6">Custom</div>
-              <a href="#" className="mt-auto bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-full text-center transition">Contact Sales</a>
+              <a href="#contact-form" className="mt-auto bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-full text-center transition">Contact Sales</a>
             </div>
             <div className="border border-purple-500 rounded-lg p-8 flex flex-col relative">
               <div className="absolute top-0 -translate-y-1/2 bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-bold">Most Popular</div>
               <h3 className="text-2xl font-semibold mb-4">Cloud</h3>
               <p className="text-neutral-400 mb-6 flex-grow">Start with a generous trial and simple pay-as-you-go pricing for our hosted solution. Includes a 14-day trial of all Pro features.</p>
               <div className="text-4xl font-bold mb-6">Trial <span className="text-lg text-neutral-400">up to 1M events/mo</span></div>
-              <a href="#" className="mt-auto bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full text-center transition">Sign Up Now</a>
+              <a href="#contact-form" className="mt-auto bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full text-center transition">Sign Up Now</a>
             </div>
             <div className="border border-gray-700 rounded-lg p-8 flex flex-col">
               <h3 className="text-2xl font-semibold mb-4">Enterprise</h3>
               <p className="text-neutral-400 mb-6 flex-grow">For large-scale deployments. Includes BYOC, advanced security (RBAC, SSO, Audit Logs), and dedicated support.</p>
               <div className="text-4xl font-bold mb-6">Custom</div>
-              <a href="#" className="mt-auto bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-full text-center transition">Contact Sales</a>
+              <a href="#contact-form" className="mt-auto bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-full text-center transition">Contact Sales</a>
             </div>
           </div>
         </section>
