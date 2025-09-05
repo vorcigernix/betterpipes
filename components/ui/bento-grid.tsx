@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
@@ -28,7 +27,6 @@ const BentoCard = ({
   className,
   Icon,
   description,
-  href,
   cta,
   img,
 }: {
@@ -36,7 +34,6 @@ const BentoCard = ({
   className: string;
   Icon: React.ComponentType<{ className: string }>;
   description: string;
-  href: string;
   cta: string;
   img?: string;
 }) => (
@@ -67,15 +64,6 @@ const BentoCard = ({
       <p className="max-w-lg text-neutral-200">{description}</p>
     </div>
 
-    {cta !== "Coming Soon" && (
-      <div
-        className={cn(
-          "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100",
-        )}
-      >
-
-      </div>
-    )}
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.2]" />
   </div>
 );
